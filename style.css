@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Berkshire+Swash&display=swap');
+
+:root {
+    --bg: #0e0b1f;
+    --bg-grad-1: #1a1440;
+    --bg-grad-2: #2a1759;
+    --accent: #ffb703;
+    --accent-2: #ff6a00;
+    --accent-3: #ff3d81;
+    --leaf: #1ec28b;
+    --flower: #ffba08;
+    --marigold: #ffa62b;
+    --text: #f8f6ff;
+    --soft: #e8e3ff;
+    --glow: #fff3c4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: radial-gradient(1200px 600px at 50% 0%, var(--bg-grad-2), var(--bg)) fixed;
+    overflow-x: hidden;
+}
+
+.sky {
+    min-height: 100dvh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.25rem;
+}
+
+.toran {
+    list-style: none;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+    z-index: 2;
+}
+
+.toran li {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: conic-gradient(from 45deg, var(--marigold), var(--flower), var(--accent-2), var(--marigold));
+    box-shadow: 0 0 8px rgba(255, 166, 43, .8);
+    animation: bob 2.4s ease-in-out infinite;
+}
+
+.toran li:nth-child(odd) {
+    animation-delay: .2s
+}
+
+@keyframes bob {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(6px)
+    }
+}
+
+.lantern {
+    position: absolute;
+    top: 30px;
+    width: 18px;
+    height: 60px;
+    border-radius: 10px;
+    background: linear-gradient(var(--accent-2), var(--accent));
+    box-shadow: 0 0 16px 4px rgba(255, 183, 3, .6);
+    animation: sway 3.2s ease-in-out infinite;
+}
+
+.lantern.left {
+    left: 24px;
+    transform-origin: top left
+}
+
+.lantern.right {
+    right: 24px;
+    transform-origin: top right;
+    animation-delay: .8s
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: rotate(-4deg)
+    }
+
+    50% {
+        transform: rotate(4deg)
+    }
+}
+
+.title-wrap {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.title-svg {
+    width: min(980px, 92vw);
+    height: 160px;
+}
+
+.title-stroke {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 64px;
+    fill: transparent;
+    stroke: #fff8dc;
+    stroke-width: 2.5;
+    stroke-dasharray: 0 50%;
+    stroke-linecap: round;
+    animation: titleDraw 4.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 6px #ffeec2);
+}
+
+.title-fill {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 64px;
+    fill: transparent;
+    animation: titleGlow 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes titleDraw {
+    0% {
+        stroke-dasharray: 0 50%;
+        stroke-dashoffset: 20%
+    }
+
+    100% {
+        stroke-dasharray: 50% 0;
+        stroke-dashoffset: -20%
+    }
+}
+
+@keyframes titleGlow {
+    0% {
+        fill: rgba(255, 230, 150, .12)
+    }
+
+    100% {
+        fill: rgba(255, 230, 150, .75)
+    }
+}
+
+.sub {
+    color: var(--soft);
+    max-width: 900px;
+    margin: .25rem auto 0;
+    font-weight: 600;
+    letter-spacing: .2px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+}
+
+.hero {
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    margin-inline: auto;
+    width: min(1100px, 96vw);
+}
+
+.ganesha-card {
+    position: relative;
+    width: min(520px, 90vw);
+    aspect-ratio: 1/1.15;
+    background: linear-gradient(145deg, #2c225f 0%, #482a7a 60%, #5a2c83 100%);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .35),
+        inset 0 0 0 2px rgba(255, 255, 255, .06);
+    transform: translateZ(0);
+}
+
+.ganesha-image {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(600px 280px at 50% 20%, rgba(255, 255, 255, .12), transparent 60%),
+        url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2Fcute-ganesha-drawing-tap-to-watch-tutorial-video--554365035400081879%2F&psig=AOvVaw15TGNb2fQNXi6WXePOb1QR&ust=1756378091392000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwjn2Iyz6KqPAxUmS2wGHci7LNIQjRx6BAgAEBo') center 35% / 45% auto no-repeat,
+        radial-gradient(circle at 50% 80%, rgba(255, 61, 129, .18), transparent 35%);
+    transition: .45s ease;
+    filter: saturate(1.05);
+}
+
+.ganesha-card:hover .ganesha-image {
+    background:
+        radial-gradient(700px 300px at 50% 20%, rgba(255, 255, 255, .18), transparent 60%),
+        url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2Fcute-ganesha-drawing-tap-to-watch-tutorial-video--554365035400081879%2F&psig=AOvVaw15TGNb2fQNXi6WXePOb1QR&ust=1756378091392000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwjn2Iyz6KqPAxUmS2wGHci7LNIQjRx6BAgAEBo') center 35% / 45% auto no-repeat,
+        radial-gradient(circle at 50% 80%, rgba(255, 183, 3, .24), transparent 38%);
+    filter: saturate(1.25) contrast(1.02);
+}
+
+.glow {
+    position: absolute;
+    inset: -30%;
+    background: radial-gradient(circle at 50% 35%, rgba(255, 243, 196, .25), transparent 40%),
+        radial-gradient(1200px 400px at 50% 110%, rgba(255, 106, 0, .22), transparent 60%);
+    mix-blend-mode: screen;
+    animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        opacity: .6;
+        transform: scale(1)
+    }
+
+    50% {
+        opacity: .9;
+        transform: scale(1.03)
+    }
+}
+
+.sparkles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none
+}
+
+.sparkles span {
+    --x: 10%;
+    position: absolute;
+    top: 10%;
+    left: var(--x);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, #ffd27a 60%, transparent 70%);
+    filter: blur(.2px);
+    animation: floatUp 5s linear infinite;
+}
+
+.sparkles span:nth-child(2) {
+    --x: 25%;
+    animation-delay: .4s
+}
+
+.sparkles span:nth-child(3) {
+    --x: 40%;
+    animation-delay: .8s
+}
+
+.sparkles span:nth-child(4) {
+    --x: 55%;
+    animation-delay: 1.2s
+}
+
+.sparkles span:nth-child(5) {
+    --x: 70%;
+    animation-delay: 1.6s
+}
+
+.sparkles span:nth-child(6) {
+    --x: 85%;
+    animation-delay: 2s
+}
+
+.sparkles span:nth-child(7) {
+    --x: 15%;
+    animation-delay: 2.4s
+}
+
+.sparkles span:nth-child(8) {
+    --x: 33%;
+    animation-delay: 2.8s
+}
+
+.sparkles span:nth-child(9) {
+    --x: 62%;
+    animation-delay: 3.2s
+}
+
+.sparkles span:nth-child(10) {
+    --x: 78%;
+    animation-delay: 3.6s
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(60%);
+        opacity: 0
+    }
+
+    15% {
+        opacity: 1
+    }
+
+    90% {
+        opacity: 1
+    }
+
+    100% {
+        transform: translateY(-10%);
+        opacity: 0
+    }
+}
+
+.mantra {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: 8%;
+    background: rgba(255, 255, 255, .08);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: .85rem 1rem;
+    text-align: center;
+    line-height: 1.4;
+    font-weight: 600;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+}
+
+.mantra span {
+    display: block;
+    font-size: clamp(13px, 1.9vw, 16px)
+}
+
+.wishes {
+    text-align: center;
+    display: grid;
+    gap: .5rem;
+    color: var(--soft);
+}
+
+.wish-line {
+    font-size: clamp(16px, 2.4vw, 20px);
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+}
+
+.footer {
+    margin-top: .5rem;
+    text-align: center
+}
+
+.credit {
+    font-size: 12px;
+    opacity: .7
+}
+
+@media (max-width:560px) {
+    .title-svg {
+        height: 120px
+    }
+
+    .title-stroke,
+    .title-fill {
+        font-size: 42px
+    }
+
+    .ganesha-card {
+        border-radius: 22px
+    }
+}
+
+.ganesha-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: 50% 35%;
+    z-index: 1;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .35));
+    transition: transform .4s ease, filter .4s ease;
+    pointer-events: none;
+}
+
+.ganesha-image {
+    display: none
+}
+
+.credit {
+    font-size: clamp(16px, 2.4vw, 20px);
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+
+}
